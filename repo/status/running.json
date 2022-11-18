@@ -3,6 +3,17 @@
   "commandLine": [
     "/usr/bin/fdroid update"
   ],
-  "startTimestamp": 1668739924000,
+  "fdroiddata": {
+    "commitId": "de18499e6f6de473837e6963234ec4fc39049255",
+    "isDirty": true,
+    "modifiedFiles": [
+      "repo/index-v1.jar",
+      "repo/index-v1.json",
+      "repo/index.jar",
+      "repo/index.xml"
+    ],
+    "untrackedFiles": []
+  },
+  "startTimestamp": 1668741630000,
   "subcommand": "update"
 }
