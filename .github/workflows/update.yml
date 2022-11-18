@@ -1,0 +1,20 @@
+name: fdroid update
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install and run fdroid update
+        run: |
+          sudo add-apt-repository ppa:fdroid/fdroidserver
+          sudo apt-get update
+          sudo apt-get -qy install fdroidserver --no-install-recommends
+          echo $fdroid_keystore | base64 -di > keystore.p12
+          echo $fdroid_config | base64 -di > config.yml
+          chmod 600 keystore.p12 config.yml
