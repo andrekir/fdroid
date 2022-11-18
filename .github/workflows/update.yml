@@ -26,11 +26,10 @@ jobs:
 #          fdroid_config: ${{ secrets.fdroid_config }}
 #          fdroid_keystore: ${{ secrets.fdroid_keystore }}
 
-      - name: Run fdroid init
+      - name: fdroid update
         run: |
-          mkdir fdroid
           cd fdroid
-          fdroid init
+          fdroid update
 
       - name: commit update
         run: |
@@ -38,5 +37,5 @@ jobs:
           git config --global user.email 'bot@noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add fdroid
-          git commit -m "fdroid init"
+          git commit -m "fdroid update"
           git push
