@@ -1,0 +1,23 @@
+Name: Meshtastic
+Categories:
+  - Connectivity
+  - Navigation
+  - Internet
+License: GPL-3.0-only
+AuthorName: Geeksville Industries, LLC
+WebSite: https://meshtastic.org
+SourceCode: https://github.com/meshtastic/Meshtastic-Android
+IssueTracker: https://github.com/meshtastic/Meshtastic-Android/issues
+Changelog: https://github.com/meshtastic/Meshtastic-Android/releases
+Summary: Open Source, decentralized mesh networking ecosystem
+Description: |-
+    This app is a tool for use with Meshtastic radios. The radios will optionally work with your phone, but no phone is required.
+
+    Meshtastic is a project that lets you use inexpensive LoRa radios as a long range off-grid communicator for areas without reliable cellular service. These radios are great for hiking, skiing, paragliding - essentially any hobby where you dont have reliable internet access.
+    
+    The radios automatically create a mesh to forward packets as needed, so everyone in the group can receive messages from even the furthest member. Each member of the mesh can send and view text messages and enable optional GPS based location features.
+
+    This project is currently in beta testing.
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersionCode: 2147483647
