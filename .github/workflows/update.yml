@@ -16,19 +16,17 @@ jobs:
           sudo apt-get update
           sudo apt-get -qy install fdroidserver --no-install-recommends
 
-#      - name: Load secrets
-#        run: |
-#          mkdir fdroid
-#          echo $fdroid_config | base64 -di > ./fdroid/config.yml
-#          echo $fdroid_keystore | base64 -di > ./fdroid/keystore.p12
-#          chmod 600 ./fdroid/config.yml ./fdroid/keystore.p12
-#        env:
-#          fdroid_config: ${{ secrets.fdroid_config }}
-#          fdroid_keystore: ${{ secrets.fdroid_keystore }}
+      - name: Load secrets
+        run: |
+          echo $fdroid_config | base64 -di > ./fdroid/config.yml
+          echo $fdroid_keystore | base64 -di > ./fdroid/keystore.p12
+          chmod 600 ./fdroid/config.yml ./fdroid/keystore.p12
+        env:
+          fdroid_config: ${{ secrets.fdroid_config }}
+          fdroid_keystore: ${{ secrets.fdroid_keystore }}
 
       - name: fdroid update
         run: |
-          cd fdroid
           fdroid update
 
       - name: commit update
@@ -36,6 +34,6 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email 'bot@noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add fdroid
+          git add .
           git commit -m "fdroid update"
           git push
