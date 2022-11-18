@@ -10,15 +10,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install and run fdroid update
+      - name: Install fdroid server
         run: |
           sudo add-apt-repository ppa:fdroid/fdroidserver
           sudo apt-get update
           sudo apt-get -qy install fdroidserver --no-install-recommends
-          echo $fdroid_keystore | base64 -di > keystore.p12
+
+      - name: Load secrets
+        run: |
+          echo $fdroid_keystore > keystore.p12
           echo $fdroid_config | base64 -di > config.yml
           chmod 600 keystore.p12 config.yml
-          fdroid update
         env:
           fdroid_config: ${{ secrets.fdroid_config }}
           fdroid_keystore: ${{ secrets.fdroid_keystore }}
+
+      - name: Run fdroid update
+        run: fdroid update
+
