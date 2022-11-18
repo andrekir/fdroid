@@ -18,9 +18,9 @@ jobs:
 
       - name: Load secrets
         run: |
-          echo $fdroid_keystore > keystore.p12
-          echo $fdroid_config | base64 -di > config.yml
-          chmod 600 keystore.p12 config.yml
+          echo $fdroid_config > config.yml
+          echo $fdroid_keystore | base64 -di > keystore.p12
+          chmod 600 config.yml keystore.p12
         env:
           fdroid_config: ${{ secrets.fdroid_config }}
           fdroid_keystore: ${{ secrets.fdroid_keystore }}
