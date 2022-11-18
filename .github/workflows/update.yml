@@ -25,6 +25,6 @@ jobs:
           fdroid_config: ${{ secrets.fdroid_config }}
           fdroid_keystore: ${{ secrets.fdroid_keystore }}
 
-      - name: Run fdroid update
-        run: fdroid update
+      - name: Run fdroid init
+        run: fdroid init
 
