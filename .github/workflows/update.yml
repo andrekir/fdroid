@@ -16,18 +16,15 @@ jobs:
           sudo apt-get update
           sudo apt-get -qy install fdroidserver --no-install-recommends
 
-      - name: Load secrets
-        run: |
-          mkdir fdroid
-          echo $fdroid_config | base64 -di > ./fdroid/config.yml
-          echo $fdroid_keystore | base64 -di > ./fdroid/keystore.p12
-          chmod 600 ./fdroid/config.yml ./fdroid/keystore.p12
-        env:
-          fdroid_config: ${{ secrets.fdroid_config }}
-          fdroid_keystore: ${{ secrets.fdroid_keystore }}
+#      - name: Load secrets
+#        run: |
+#          mkdir fdroid
+#          echo $fdroid_config | base64 -di > ./fdroid/config.yml
+#          echo $fdroid_keystore | base64 -di > ./fdroid/keystore.p12
+#          chmod 600 ./fdroid/config.yml ./fdroid/keystore.p12
+#        env:
+#          fdroid_config: ${{ secrets.fdroid_config }}
+#          fdroid_keystore: ${{ secrets.fdroid_keystore }}
 
       - name: Run fdroid init
-        run: |
-          cd fdroid
-          fdroid init
-
+        run: fdroid init
