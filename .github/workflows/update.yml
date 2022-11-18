@@ -27,7 +27,13 @@ jobs:
 #          fdroid_keystore: ${{ secrets.fdroid_keystore }}
 
       - name: Run fdroid init
-        run: fdroid init
+        run: |
+          mkdir fdroid
+          cd fdroid
+          fdroid init
 
-      - name: show me
-        run: cat config.yml
+      - name: commit update
+        run: |
+          git add fdroid
+          git commit -m "fdroid init"
+          git push
