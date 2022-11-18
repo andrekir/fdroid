@@ -4,16 +4,21 @@
     "/usr/bin/fdroid update"
   ],
   "fdroiddata": {
-    "commitId": "de18499e6f6de473837e6963234ec4fc39049255",
+    "commitId": "2c907fc61d8b652e20b4e94b22de10f98076d9a8",
     "isDirty": true,
     "modifiedFiles": [
       "repo/index-v1.jar",
       "repo/index-v1.json",
+      "repo/index.html",
       "repo/index.jar",
       "repo/index.xml"
     ],
-    "untrackedFiles": []
+    "untrackedFiles": [
+      "repo/com.geeksville.mesh/en-US/featureGraphic_EfLVaPVVoFvEC5jOf6HJneuH3Qp__RkKeoQEvP3O7kU=.png",
+      "repo/com.geeksville.mesh/en-US/icon_8rQg_lamQt8B2-cHNME4U0GxzSVjNVbxo2cgAISoIvM=.png",
+      "tmp/apkcache.json"
+    ]
   },
-  "startTimestamp": 1668741630000,
+  "startTimestamp": 1668743573000,
   "subcommand": "update"
 }
